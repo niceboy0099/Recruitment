@@ -1,0 +1,12 @@
+<h3>Add conditions</h3>
+<%= form_for @condition do |f| %>
+ <div><%= f.label :Title %>
+ <%= f.text_field :title %></div>
+
+ <div><%= f.label :Description %>
+   <%= f.text_area :description %></div>
+
+ 
+ <%= f.submit "Create", :class => 'btn btn-primary' %>
+ <% end %>
+

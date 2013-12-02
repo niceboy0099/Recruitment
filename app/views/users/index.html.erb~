@@ -1,0 +1,54 @@
+<script
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+$("#job").click(function(){
+$("#detail").slideDown("slow");
+$("#detail2, #detail1").slideUp("slow");
+
+});
+});
+$(document).ready(function(){
+$("#job1").click(function(){
+$("#detail1").slideDown("slow");
+$("#detail, #detail2").slideUp("slow");
+});
+});
+$(document).ready(function(){
+$("#job2").click(function(){
+$("#detail2").slideDown("slow");
+$("#detail, #detail1").slideUp("slow");
+});
+});
+</script>
+<style>
+.divi
+{
+  background-color:#e5eecc;
+  border:solid 1px #c3c3c3;
+ 
+}
+.head
+{
+  padding:5px;
+ 
+}
+.dis
+{
+  padding:50px;
+ display:none;
+ 
+}
+
+</style>
+<div id="job" class="head divi ">job1</div>
+<div id="detail" class="dis divi ">description</div>
+
+<div id="job1" class="head divi ">job2</div>
+<div id="detail1" class="dis divi ">Description</div>
+
+<div id="job2" class="head divi ">job3</div>
+<div id="detail2" class="dis divi">Description</div>
+
+<center><button><%= link_to "I agreed proceed" , new_user_path %></button></center>

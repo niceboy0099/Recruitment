@@ -1,0 +1,10 @@
+<h3>See all conditions</h3>
+<% @condition.each do |condition| %>
+<div><strong>Title       </strong><%= condition.title %></div>
+
+<div><strong>Description   </strong><%= condition.description %></div>
+<div><%=l condition.created_at %></div>
+<button ><%= link_to "Edit", edit_condition_path(condition) %></button>
+
+<% end %>
+

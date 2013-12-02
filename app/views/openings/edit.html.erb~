@@ -1,0 +1,15 @@
+<h1>Editing Job</h1>
+ 
+<%= form_for :opening, url: opening_path(@opening), method: :patch do |f| %>
+ <div><%= f.label :Title %>
+ <%= f.text_field :title %></div>
+
+ <div><%= f.label :Type %>
+<%= f.select(:jtype, options_for_select([['Fresher', 'Fresher'], ['Experience', 'Experience']])) %>
+
+ <div><%= f.label :Description %>
+   <%= f.text_area :description %></div>
+   <%= f.submit "Update", :class => 'btn btn-primary' %>
+
+</div>
+<% end %>

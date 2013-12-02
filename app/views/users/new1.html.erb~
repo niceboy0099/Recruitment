@@ -1,0 +1,2 @@
+<h1>See Job Detail</h1>
+<%= link_to "Fill details", new_user_path %>

@@ -1,0 +1,130 @@
+<script
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+$("#f1").click(function(){
+$("#t1").slideDown("slow");
+});
+});
+$(document).ready(function(){
+$("#f2").click(function(){
+$("#t2").slideDown("slow");
+});
+});
+$(document).ready(function(){
+$("#f3").click(function(){
+$("#t3").slideDown("slow");
+});
+});
+</script>
+<style>
+.hide
+{
+  display:none;
+}
+fieldset 
+{
+  border-radius: 10px;
+    border: 5px solid #009;
+  padding: 1em;
+  font:80%/1 sans-serif;
+}
+legend
+{
+    
+  
+  font-size:20px;
+  border-top: 2px solid #009;
+  border-left: 2px solid #009;
+  border-right:  2px solid #009;
+  border-radius: 10px;
+}
+</style>
+<h1>Fill details Here</h1>
+<div>
+   <%= form_for @user do |f| %>
+   <fieldset id="f1" >
+    <legend>Personal-Details</legend>
+    
+    <table id="t1" class="hide">
+      <tr>
+        <th>Name</th>
+         <td><%= f.text_field :firstname %></td>
+         <td><%= f.text_field :lastname %></td>
+      </tr>
+      <tr>
+          <th>Email</th>
+          <td><%= f.email_field :email %></td>
+      </tr>
+      <tr>          
+          <th>Contact</th>
+          <td><%= f.text_field :contact %><td>
+      </tr>
+      <tr>
+        <th>Local address</th>
+        <td><%= text_area_tag :localaddress %></td>
+        <th>Permanent address</th>
+        <td><%= text_area_tag :permanentaddress %></td>
+      </tr>  
+    </table>
+ 
+  </fieldset>
+  <br />
+  <fieldset id="f2">
+   <legend>Academic-Details</legend>
+   <%= f.fields_for :academics do |s| %>
+    <table id="t2" class="hide">
+      <tr>
+        <th>Course</th>
+        <td><%= s.text_field :course %></td>
+      </tr>
+      <tr>
+        <th>Passing Year</th>
+        <td><%= s.text_field :pass_year %></td>
+      </tr>
+      <tr>
+        <th>Board/University</th>
+        <td><%= s.text_field :board %></td>
+      </tr>
+      <tr>
+        <th>Percentage</th>
+        <td><%= s.text_field :percentage %></td>
+      </tr>
+      <tr>
+        <th>Place</th>
+        <td><%= s.text_field :place %></td>
+      </tr>
+      <tr>
+        <th>Institute</th>
+        <td><%= s.text_field :institute %></td>
+      </tr>
+    </table>
+    <% end %>
+  </fieldset>
+  <br />
+  <fieldset id="f3">
+  <legend>Technical-Detail</legend>
+  <%= f.fields_for :technicals do |t| %>
+   <table id="t3" class="hide">
+    <tr>
+     <th>Programming Skills</th>
+     <td><%= t.text_field :programming_skills %>
+    </tr>
+     <tr>
+     <th>WEB Technologies</th>
+     <td><%= t.text_field :web_skills %>
+    </tr>
+     <tr>
+     <th>Databases Known</th>
+     <td><%= t.text_field :database %>
+    </tr>
+     <tr>
+     <th>Others</th>
+     <td><%= t.text_field :others %>
+    </tr>
+   </table>
+  <% end %>
+  <%= f.submit "Save" %>
+  <% end %> 
+</div>      

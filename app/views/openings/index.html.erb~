@@ -1,0 +1,10 @@
+<h3>See all the jobs</h3>
+<% @opening.each do |opening| %>
+<div><strong>Title       </strong><%= opening.title %></div>
+<div><strong>Type        </strong><%= opening.jtype %></div>
+<div><strong>About job   </strong><%= opening.description %></div>
+<div><%=l opening.created_at %></div>
+<button class ="btn btn-primary"><%= link_to "Edit", edit_opening_path(opening) %></button>
+<button class ="btn btn-primary"><%= link_to "Delete", opening_path(opening), method: :delete, data: { confirm: 'Are you sure?'} %></button>
+<% end %>
+
