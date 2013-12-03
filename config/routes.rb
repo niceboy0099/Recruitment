@@ -6,13 +6,14 @@ Recruitment::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'welcome#index'
-    resources :seekers do
-      resources :academics
-    end
+    #resources :seekers do
+    #  resources :academics
+    #end
    resources :users
    resources :openings 
-    resources :conditions
-  
+   resources :conditions
+   resources :opening_conditions
+   resources :seekers
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

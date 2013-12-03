@@ -9,7 +9,12 @@ class OpeningsController < ApplicationController
   def create
 	  @opening = Opening.new(params.require(:opening).permit(:title, :jtype, :description))
    if @opening.save
-    redirect_to @opening
+     cond = params[:opening][:condition_ids]
+     cond.each do |cid|
+      @condition = OpeningCondition.create(:opening_id => @opening.id, :condition_id => cid)
+      @condition.save
+     end
+     redirect_to @opening
    end
 	 end 
   def show

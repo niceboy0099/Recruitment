@@ -1,5 +1,5 @@
 <h3>Make  the current opening here</h3>
-<%= form_for @opening do |f| %>
+<%= simple_form_for @opening do |f| %>
  
  <div>
   <%= f.label :Title %>
@@ -15,10 +15,9 @@
   <%= f.label :Description %>
   <%= f.text_area :description %>
  </div>
- <% @condition.each do |s| %>
-
-<p><%= s.description %>
-<% end %><br />
+ 
+ <%= f.association :conditions, as: :check_boxes %>
+ 
  <%= f.submit "Create", :class => 'btn btn-primary' %>
 
 <% end %>
