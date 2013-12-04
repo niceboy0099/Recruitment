@@ -1,10 +1,21 @@
-<h3>See all conditions</h3>
-<% @condition.each do |condition| %>
-<div><strong>Title       </strong><%= condition.title %></div>
-
-<div><strong>Description   </strong><%= condition.description %></div>
-<div><%=l condition.created_at %></div>
-<button ><%= link_to "Edit", edit_condition_path(condition) %></button>
-
-<% end %>
-
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created at</th>
+        <th>Setting</th>
+    </tr>
+    <% @condition.each do |condition| %>
+    <tr>
+        <td><%= condition.id %></td>
+        <td><%= condition.title %></td>
+        <td><%= condition.description %></td>
+        <td><%=l condition.created_at %></td>
+        <td>
+            <button class = "btn btn-mini"><%= link_to "Edit", edit_condition_path(condition) %></button>
+            <button class = "btn btn-mini btn  btn-mini btn-danger"><%= link_to "Delete", condition_path(condition), method: :delete, data: { confirm: 'Are you sure?'} %></button>
+        </td>
+        <% end %>
+    </tr>
+</table>

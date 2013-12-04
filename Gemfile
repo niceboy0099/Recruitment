@@ -48,4 +48,4 @@ gem "twitter-bootstrap-rails"
 gem 'simple_form'
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

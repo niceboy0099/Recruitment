@@ -1,18 +1,32 @@
+<style>
+fieldset
+{
+    width:300px;
+    float:left;
+    border-style:groove;
+    color:green;
+}
+legend
+{
+    color:green;
+}
+</style>
 <h3>Current Created opening</h3>
-<p>
-  <strong>Title:</strong>
-  <%= @opening.title %>
-</p>
+<fieldset>
+<legend>Title</legend>
  
-<p>
-  <strong>Type:</strong>
+  <%= @opening.title %>
+</fieldset>
+ 
+<fieldset>
+<legend>Type</legend>
   <%= @opening.jtype %>
-</p>
+</fieldset>
 
-<p>
-  <strong>Description:</strong>
+<fieldset>
+  <legend>Description:</legend>
   <%= @opening.description %>
-</p>
+</fieldset>
 <br />
 
 

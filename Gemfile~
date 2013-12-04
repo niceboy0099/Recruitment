@@ -39,9 +39,13 @@ gem 'devise'
 
 # Use unicorn as the app server
 # gem 'unicorn'
+
 gem "twitter-bootstrap-rails"
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
+
+gem 'simple_form'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
