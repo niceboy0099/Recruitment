@@ -3,9 +3,12 @@ class OpeningsController < ApplicationController
     @opening = Opening.new
     @condition = Condition.all
   end
+  
+  
   def index
     @opening = Opening.all
   end
+  
   def create
     @opening = Opening.new(params.require(:opening).permit(:title, :jtype, :description))
     if @opening.save
@@ -16,14 +19,20 @@ class OpeningsController < ApplicationController
       redirect_to @opening
     end
   end 
+  
+  
   def show
     @opening = Opening.find(params[:id])
-    @condition = OpeningCondition.where("opening_id = ?", @opening.id)
+    @conditions = OpeningCondition.includes(:condition).where("opening_id = ?", @opening.id)
   end
+    
+    
   def edit
     @opening = Opening.find(params[:id]) 
     @condition = OpeningCondition.where("opening_id = ?", @opening.id)
   end
+  
+  
   def update
     @opening = Opening.find(params[:id])
     @condition = OpeningCondition.where("opening_id = ?", @opening.id)
@@ -38,6 +47,8 @@ class OpeningsController < ApplicationController
     end 
     redirect_to @opening 
   end 
+  
+  
   def destroy
     @opening=Opening.find(params[:id])
     @condition = OpeningCondition.where("opening_id = ?", @opening.id)

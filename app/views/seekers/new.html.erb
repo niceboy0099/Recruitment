@@ -1,99 +1,40 @@
-<h2>Fill details Here</h2>
-<div>
- <%= form_for @seeker do |f| %>
-  <fieldset id="f1" >
-   <legend>Personal-Details</legend>
-   
-   <div><%= f.label :name %>
-   <%= f.text_field :firstname %>
-   <%= f.text_field :lastname %></div>
-
-   <div><%= f.label :email %>
-   <%= f.email_field :email %></div>
-  
-   <div><%= f.label :contact %>
-   <%= f.text_field :contact %></div>
-
-   <div><%= f.label :localaddress %>
-   <%= text_area_tag :localaddress %></div>
-
-   <div><%= f.label :permanentaddress %>
-   <%= text_area_tag :permanentaddress %></div>
-  </fieldset>
-  <br />
-  <fieldset id="f2">
-   <legend>Academic-Details</legend>
-   
-   <%= f.fields_for :academics do |s| %>
+<div class="headinglog">
+    <h2>Fill details Here</h2>
+    <%= simple_form_for @seeker do |f| %>
     
-    <div><%= s.label :course %>
-    <%= s.text_field :course %></div>
-    
-    <div><%= s.label :passingyear %> 
-    <%= s.text_field :pass_year %></div>
-    
-    <div><%= s.label :university %>
-    <%= s.text_field :board %></div>
-    
-    <div><%= s.label :pescentage %>
-    <%= s.text_field :percentage %></div>
-    
-    <div><%= s.label :place %>
-    <%= s.text_field :place %></div>
-    
-    <div><%= s.label :institute %>
-    <%= s.text_field :institute %></div>
-   
-   <% end %>
-  </fieldset>
-  <br />
-  <fieldset id="f3">
-   <legend>Technical-Detail</legend>
-   
-   <%= f.fields_for :technicals do |t| %>
-    
-    <div><%= t.label :programmingskills %>
-    <%= t.text_field :programming_skills %></div>
-    
-    <div><%= t.label :webtechnologies %>
-    <%= t.text_field :web_skills %></div>
-    
-    <div><%= t.label :databaseknown %>
-    <%= t.text_field :database %></div>
-    
-    <div><%= t.label :others %>
-    <%= t.text_field :others %></div>
-   
-   <% end %>
-  </fieldset>
-  <br />
-  <fieldset>
-   <legend>Work Experience</legend>
-   
-   <%= f.fields_for :workexperiences do |w| %>
-    
-   
-    <div> Fresher <%= w.radio_button(:type, "fresher") %>
-    Experience <%= w.radio_button(:type, "experience") %></div>
-    
-    
-    <div><%= w.label :Experience %>
-    <%= w.text_field :experience %></div>
-   <% end %>
-   <%= f.fields_for :experiences do |e| %>
-   
-     <div><%= e.label :company %>
-    <%= e.text_field :company %></div>
-    
-     <div><%= e.label :technology %>
-    <%= e.text_field :technology %></div>
-    
-     <div><%= e.label :experience%>
-    <%= e.text_field :experience %></div>
-    
-     <div><%= e.label :profile %>
-    <%= e.text_field :profile %></div>
-   <% end %>
- <div><%= f.submit "Save", :class => 'btn btn-primary' %></div>
+      <div>
+          <%= f.label :Name  %>
+          <%= f.text_field :firstname, title: "Enter your First name" %>
+          <%= f.text_field :lastname, title: "Enter your Lastname" %>
+      </div>
+      <div>
+          <%= f.label :Email %>
+          <%= f.email_field :email, title: "Enter your valid Email" %>
+      </div>
+      <div>
+          <%= f.label :Contact%>
+          <%= f.text_field :contact, title: "Enter contact number" %>
+      </div>
+      
+      <div>
+          <%= f.label :Gender %>
+          <%= f.label(:male, "Male") %><%= f.radio_button(:gender, "male") %>
+          <%= f.label(:female, "Female") %><%= f.radio_button(:gender, "female") %>
+      </div>
+      <div>
+          <%= f.label :birth, "Date of Birth" %>
+          <%= f.date_field :birth %>
+      </div>
+      <div>
+          <%= f.label :localaddress, "Local Address" %>
+          <%= f.text_area :localaddress, title: "Enter your Local Address" %>
+      </div>
+      <div>
+          <%= f.label :permanentaddress, "Local Address" %>
+          <%= f.text_area :permanentaddress, title: "Enter your Permanent Address" %>
+      </div>
+      <div>
+          <%= f.submit "Save", :class => 'btn btn-primary' %>
+      </div>
  <% end %> 
 </div>    

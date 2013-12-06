@@ -15,11 +15,13 @@ ActiveRecord::Schema.define(version: 20131202074433) do
 
   create_table "academics", force: true do |t|
     t.string   "course"
+    t.string   "percentage"
     t.string   "pass_year"
     t.string   "board"
-    t.string   "percentage"
-    t.string   "place"
+    t.string   "stream"
     t.text     "institute"
+    t.string   "place"
+    t.string   "medium"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,6 +71,8 @@ ActiveRecord::Schema.define(version: 20131202074433) do
     t.string   "lastname"
     t.string   "email"
     t.string   "contact"
+    t.string   "gender"
+    t.date     "birth"
     t.text     "localaddress"
     t.text     "permanentaddress"
     t.datetime "created_at"
@@ -87,9 +91,7 @@ ActiveRecord::Schema.define(version: 20131202074433) do
   create_table "users", force: true do |t|
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "contact"
     t.text     "localaddress"
-    t.text     "permanentaddress"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false

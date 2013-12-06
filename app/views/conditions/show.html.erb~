@@ -1,6 +1,11 @@
-<strong>Title</strong>
-<%= @condition.title %>
-<br />
-<strong>Description</strong>
-<%= @condition.description %>
-<br />
+<div class="headinglog">
+ <strong>Title</strong>
+
+ <%= @condition.title %>
+ <br />
+
+ <strong>Description</strong>
+
+ <%= @condition.description %>
+ <br />
+</div>

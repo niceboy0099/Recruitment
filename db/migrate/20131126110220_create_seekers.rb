@@ -6,6 +6,8 @@ class CreateSeekers < ActiveRecord::Migration
       t.string :lastname
       t.string :email
       t.string :contact
+      t.string :gender
+      t.date :birth
       t.text :localaddress
       t.text :permanentaddress
       t.timestamps

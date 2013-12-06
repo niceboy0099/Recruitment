@@ -1,11 +1,16 @@
-<h3>Edit conditions</h3>
-<%= form_for @condition do |f| %>
- <div><%= f.label :Title %>
- <%= f.text_field :title %></div>
+<div class="headinglog">
+  <h3>Edit conditions</h3>
+  
+  <%= form_for @condition do |f| %>
 
- <div><%= f.label :Description %>
+  <div><%= f.label :Title %>
+   <%= f.text_field :title %></div>
+
+  <div><%= f.label :Description %>
    <%= f.text_area :description %></div>
 
- 
- <%= f.submit "Edit", :class => 'btn btn-primary' %>
- <% end %>
+  <%= f.submit "Edit", :class => 'btn btn-primary' %>
+  
+  <% end %>
+
+</div>

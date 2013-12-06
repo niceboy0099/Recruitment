@@ -1,14 +1,12 @@
-
 <center>
-<div><h1 class="b">Welcome Here</h1></div>
+    <div>
+        <h2 class="heading">Welcome to Grep Ruby Recruitments</h2>
+    </div>
 </center>
-  
-   <% if !user_signed_in? %>
- 
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-<div id="about" class="c divi"><h2><center>About Us</center></h2></div>
-
-<center><div class="e "><%= image_tag "5.jpg" %><%= image_tag "download.jpg" %></div></center>
-<div class="d divi"><h2><center><%= link_to "Current Openings", seekers_path %></center></h2></div>
+<div class="heading">
+    <%= image_tag "recruitment.jpg" %>
+</div>
+<div class="d heading">
+    <h2><%= link_to "Continue", seekers_path %></h2>
+</div>
 

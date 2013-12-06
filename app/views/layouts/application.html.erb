@@ -37,26 +37,28 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="http://grepruby.com">Grep Ruby</a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Home", welcome_index_path  %></li>
-              <li><%= link_to "About Us", "/path2"  %></li>
-              <li><%= link_to "Contact", "/path3"  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+  <!--- Header start -->
+    <header>
+          <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="logo"><a href="http://localhost:3000/">Grep Ruby</a></div>
+                    </div>
+                    <div class="col-lg-3 pull-right header_login">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <% if !user_signed_in? %>
+                                    <button class="btn btn-lg btn-success col-lg-12 pull-left" type="button"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></button>
+                                <% end %> 
+                                <% if user_signed_in? %>
+                                    <button class="btn btn-lg btn-success col-lg-12 pull-right" type="button"><li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li></button>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
     <p class="navbar-text pull-right">
     <div class="container-fluid">
       <div class="row-fluid">
@@ -67,7 +69,7 @@
              
               Welcome <strong><%= current_user.email %></strong>.
               <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+              
               <li><%= link_to "Add New Opening", new_opening_path %></li>
               <li><%= link_to "See All Openings", openings_path %></li>
               <li><%= link_to "Add Terms & Conditions", new_condition_path %>
@@ -81,12 +83,15 @@
           <%= yield %>
         </div>
       </div><!--/row-->
-
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
-
     </div> <!-- /container -->
-
+    <!--- footer start -->
+      <footer>
+         <p>&copy; Company 2013</p>
+         
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+      </footer>
   </body>
 </html> 

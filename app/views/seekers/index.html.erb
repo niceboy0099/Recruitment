@@ -1,24 +1,12 @@
-<script
-src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-</script>
-<script>
-$(document).ready(function(){
-$("p").click(function(){
-$("div").slideDown("slow");
-});
-});
-</script>
-<style>
-.dis
-{
-  padding:50px;
- display:none;
-}
-</style>
-<h1>Our openings</h1>
 
+<h1>Our openings</h1>
+<div>
 <% @opening.each do |open| %>
-<p><%= open.title %></p>
-<div class="dis"><%= open.description %></div>
+
+<div class="add"><p><center><%= open.title %></p>
+<p><%= link_to "View more", opening_path(open.id) %></p>
+</div>
 <% end %>
-<center><button><%= link_to "I agreed proceed" , new_seeker_path %></button></center>
+</div>
+</br />
+

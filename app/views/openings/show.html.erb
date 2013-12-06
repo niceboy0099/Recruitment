@@ -2,31 +2,62 @@
 fieldset
 {
     width:300px;
-    float:left;
+    
     border-style:groove;
     color:green;
 }
 legend
 {
-    color:green;
+    color:red;
+    font_size:30px;
+}
+.divi
+{
+   background-color:yellow;
+   width:100px;
+   margin-top:100px;
+    float:left;
+}
+.p1
+{
+    font-size:30px;
 }
 </style>
-<h3>Current Created opening</h3>
-<fieldset>
-<legend>Title</legend>
+<center>
+    <h3>About Opening</h3>
+    <fieldset>
+        <legend>Title</legend>
  
-  <%= @opening.title %>
-</fieldset>
- 
-<fieldset>
-<legend>Type</legend>
-  <%= @opening.jtype %>
-</fieldset>
+        <p class="p1"><%= @opening.title %></p>
 
-<fieldset>
-  <legend>Description:</legend>
-  <%= @opening.description %>
-</fieldset>
-<br />
+    </fieldset>
+    <br />
+    <fieldset>
+        <legend>Type</legend>
+        
+        <p class="p1"><%= @opening.jtype %></p>
+
+    </fieldset>
+    <br />
+    <fieldset>
+        <legend>Description:</legend>
+        
+        <p class="p1"><%= @opening.description %></p>
+
+    </fieldset>
+    <br />
+    <fieldset>
+        <legend>Terms & Conditions</legend>
+        
+        <% @conditions.each do |cond| %>
+            <p class="p1"><%= cond.condition.description %></p>
+        <% end %>
+    </fieldset>
+    <br />
+    <% if !user_signed_in? %>
+        <%= link_to "Apply Here", new_seeker_path %>
+    <% end %>
+    <%= link_to "Back", :back %>
+</center>
 
 
