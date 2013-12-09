@@ -9,6 +9,8 @@ class CreateAcademics < ActiveRecord::Migration
       t.text :institute
       t.string :place
       t.string :medium
+      
+      t.references :seeker
 
       t.timestamps
     end

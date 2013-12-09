@@ -1,0 +1,43 @@
+<div class="heading">
+    <%= simple_form_for @academic do |f| %>
+        <div>
+            <%= f.label :Course %>
+            <%= f.text_field :course %>
+        </div>
+        <div>
+            <%= f.label :Percentage %>
+            <%= f.text_field :percentage %>
+        </div>
+        <div>
+            <%= f.label :pass_year, "Year of passing" %>
+            <%= f.text_field :pass_year %>
+        </div>
+        <div>
+            <%= f.label :board, "Board/University" %>
+            <%= f.text_field :board %>
+        </div>
+        <div>
+            <%= f.label :Stream %>
+            <%= f.text_field :stream %>
+        </div>
+        <div>
+            <%= f.label :Institute %>
+            <%= f.text_field :institute %>
+        </div>
+        <div>
+            <%= f.label :Place %>
+            <%= f.text_field :place %>
+        </div>
+        <div>
+            <%= f.label :Medium %>
+            <%= f.label(:hindi, "Hindi")%><%= f.radio_button(:medium, "hindi") %>
+            <%= f.label(:english, "English") %><%= f.radio_button(:medium, "english") %>
+            <%= f.label(:other, "Other") %><%= f.radio_button(:medium, "other") %>
+            
+        </div>
+        <br />
+        <div>
+            <%= f.submit "Next" , :class => 'btn btn-primary' %>
+        </div>
+    <% end %>
+</div>

@@ -5,7 +5,9 @@ class CreateTechnicals < ActiveRecord::Migration
       t.string :web_skills
       t.string :database
       t.string :others
-
+      
+      t.references :seeker
+      
       t.timestamps
     end
   end

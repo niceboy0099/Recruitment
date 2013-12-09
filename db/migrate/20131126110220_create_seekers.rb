@@ -10,6 +10,10 @@ class CreateSeekers < ActiveRecord::Migration
       t.date :birth
       t.text :localaddress
       t.text :permanentaddress
+      t.string :totalexperience
+      t.string :currentCTC
+      t.string :expectedCTC
+      t.string :state
       t.timestamps
     end
   end

@@ -1,0 +1,29 @@
+<div class="heading">
+
+    <%= simple_form_for @technical do |f| %>
+        
+        <div>
+            <%= f.label :programmingskill, "Pregramming Skills" %>
+            <%= f.text_area :programming_skills, title: "Enter Technical Skills" %>
+        </div>
+        
+        <div>
+            <%= f.label :webskill, "Web Technologies" %>
+            <%= f.text_area :web_skills, title: "Enter Web Technologies Known" %>
+        </div>
+        
+        <div>
+            <%= f.label :database, "DataBases Known" %>
+            <%= f.text_area :database, title: "Enter known Databases" %>
+        </div>
+        
+        <div>
+            <%= f.label :other, "Others" %>
+            <%= f.text_area :others %>
+        </div>
+        
+        <div>
+            <%= f.submit "Save", :class => 'btn btn-primary' %>
+        </div>
+        
+    <% end %>

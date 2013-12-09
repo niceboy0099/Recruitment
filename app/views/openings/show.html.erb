@@ -20,44 +20,45 @@ legend
 }
 .p1
 {
-    font-size:30px;
+    font-size:15px;
 }
 </style>
 <center>
-    <h3>About Opening</h3>
-    <fieldset>
-        <legend>Title</legend>
+    <div class="heading">
+        <h3>About Opening</h3>
+        <fieldset>
+            <legend>Title</legend>
  
-        <p class="p1"><%= @opening.title %></p>
+            <p class="p1"><%= @opening.title %></p>
 
-    </fieldset>
-    <br />
-    <fieldset>
-        <legend>Type</legend>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Type</legend>
         
-        <p class="p1"><%= @opening.jtype %></p>
+            <p class="p1"><%= @opening.jtype %></p>
 
-    </fieldset>
-    <br />
-    <fieldset>
-        <legend>Description:</legend>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Description:</legend>
         
-        <p class="p1"><%= @opening.description %></p>
+            <p class="p1"><%= @opening.description %></p>
 
-    </fieldset>
-    <br />
-    <fieldset>
-        <legend>Terms & Conditions</legend>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Terms & Conditions</legend>
         
-        <% @conditions.each do |cond| %>
-            <p class="p1"><%= cond.condition.description %></p>
+            <% @conditions.each do |cond| %>
+                <p class="p1"><%= cond.condition.description %></p>
+            <% end %>
+        </fieldset>
+        <br />
+        <% if !user_signed_in? %>
+            <%= link_to "Apply Here | ", new_seeker_path %>
         <% end %>
-    </fieldset>
-    <br />
-    <% if !user_signed_in? %>
-        <%= link_to "Apply Here", new_seeker_path %>
-    <% end %>
-    <%= link_to "Back", :back %>
+        <%= link_to "Back", :back %>
 </center>
 
 

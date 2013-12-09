@@ -1,6 +1,5 @@
 <table class="table table-striped">
     <tr>
-        <th>Id</th>
         <th>Title</th>
         <th>Description</th>
         <th>Created at</th>
@@ -8,14 +7,14 @@
     </tr>
     <% @condition.each do |condition| %>
     <tr>
-        <td><%= condition.id %></td>
         <td><%= condition.title %></td>
         <td><%= condition.description %></td>
         <td><%=l condition.created_at %></td>
         <td>
-            <button class = "btn btn-mini"><%= link_to "Edit", edit_condition_path(condition) %></button>
-            <button class = "btn btn-mini btn  btn-mini btn-danger"><%= link_to "Delete", condition_path(condition), method: :delete, data: { confirm: 'Are you sure?'} %></button>
+            <%= button_to "Edit", edit_condition_path(condition), :method => :get, :class => "btn btn-mini btn-primary" %>
+            <%= button_to "Delete", condition_path(condition), method: :delete, data: { confirm: 'Are you sure?'}, :class => "btn btn-primary btn-mini" %></button>
         </td>
-        <% end %>
+     </tr>   
+    <% end %>
     </tr>
 </table>

@@ -1,0 +1,27 @@
+<div class ="heading">
+    <%= simple_form_for @professional do |f| %>
+    
+    <div>
+        <%= f.label :company_name, "Name of Company" %>
+        <%= f.text_field :company_name, title: "Enter Company Name" %>
+    </div>
+    
+    <div>
+        <%= f.label :job_title, "Job Profile" %>
+        <%= f.text_field :job_title, title: "Job Profile" %>
+    </div>
+    
+    <div>
+        <%= f.label :worked_technology, "Worked Technology" %>
+        <%= f.text_field :worked_technology, title: "Worked Technology" %>
+    </div>
+    
+    <div>
+        <%= f.label :time_period, "Duration" %>
+        <%= f.date_field :join_date %> TO
+        <%= f.date_field :left_date %>
+    </div>
+    
+    <% end %>
+    
+</div>    

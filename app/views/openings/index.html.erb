@@ -1,6 +1,6 @@
 <table  class="table table-striped">
     <tr>
-        <th>No.</th>
+       
         <th>Title</th>
         <th>Type</th>
         <th>Detail</th>
@@ -9,14 +9,14 @@
     </tr>   
     <% @opening.each do |opening| %>
     <tr>
-        <td><%= opening.id %></td>
+       
         <td><%= opening.title %></td>
         <td><%= opening.jtype %></td>
         <td><%= opening.description %></td>
         <td><%=l opening.created_at %></td>
         <td>
-            <button class = "btn btn-mini"><%= link_to "Edit", edit_opening_path(opening) %></button>
-            <button class = "btn btn-mini btn  btn-mini btn-danger"><%= link_to "Delete", opening_path(opening), method: :delete, data: { confirm: 'Are you sure?'} %></button>
+            <%= button_to "Edit", edit_opening_path(opening), :method => :get, :class => 'btn btn-mini btn-primary' %>
+            <%= button_to "Delete", opening_path(opening), method: :delete, data: { confirm: 'Are you sure?'} , :class => "btn-mini  btn-primary"%>
         </td>
     </tr>
     <% end %>

@@ -1,0 +1,20 @@
+<div class="heading">
+    <%= simple_form_for @project do |f| %>
+    
+        <div>
+            <%= f.label :Title %>
+            <%= f.text_field :title %>
+        </div>
+        <div>
+            <%= f.label :technology , "Technology used" %>
+            <%= f.text_field :technology %>
+        </div>
+        <diV>
+            <%= f.label :description , "About Project" %>
+            <%= f.text_area :description %>
+        </div>
+        <div>
+            <%= f.submit "Save", :class => 'btn btn-primary' %>
+        </div>
+    <% end %>
+</div>    

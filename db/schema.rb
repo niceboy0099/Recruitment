@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202074433) do
+ActiveRecord::Schema.define(version: 20131209081511) do
 
   create_table "academics", force: true do |t|
     t.string   "course"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131202074433) do
     t.text     "institute"
     t.string   "place"
     t.string   "medium"
+    t.integer  "seeker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,15 +31,6 @@ ActiveRecord::Schema.define(version: 20131202074433) do
     t.string   "title"
     t.text     "description"
     t.integer  "opening_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "experiences", force: true do |t|
-    t.string   "company"
-    t.string   "technology"
-    t.string   "experience"
-    t.string   "profile"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,10 +50,22 @@ ActiveRecord::Schema.define(version: 20131202074433) do
     t.datetime "updated_at"
   end
 
+  create_table "professionals", force: true do |t|
+    t.string   "company_name"
+    t.string   "job_title"
+    t.string   "worked_technology"
+    t.date     "join_date"
+    t.date     "left_date"
+    t.integer  "seeker_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: true do |t|
     t.string   "title"
     t.string   "technology"
     t.text     "description"
+    t.integer  "seeker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,6 +79,10 @@ ActiveRecord::Schema.define(version: 20131202074433) do
     t.date     "birth"
     t.text     "localaddress"
     t.text     "permanentaddress"
+    t.string   "totalexperience"
+    t.string   "currentCTC"
+    t.string   "expectedCTC"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,6 +92,7 @@ ActiveRecord::Schema.define(version: 20131202074433) do
     t.string   "web_skills"
     t.string   "database"
     t.string   "others"
+    t.integer  "seeker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,12 +117,5 @@ ActiveRecord::Schema.define(version: 20131202074433) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "workexperiences", force: true do |t|
-    t.string   "wtype"
-    t.string   "experience"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

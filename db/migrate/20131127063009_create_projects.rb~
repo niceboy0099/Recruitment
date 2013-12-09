@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :title
       t.string :technology
       t.text :description
-      
+      t.references :seeker
       t.timestamps
     end
   end

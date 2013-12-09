@@ -10,10 +10,16 @@ Recruitment::Application.routes.draw do
     #  resources :academics
     #end
    resources :users
+  
    resources :openings 
    resources :conditions
    resources :opening_conditions
-   resources :seekers
+   resources :seekers 
+   resources :academics
+   resources :technicals
+   resources :professionals
+   resources :projects
+   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
