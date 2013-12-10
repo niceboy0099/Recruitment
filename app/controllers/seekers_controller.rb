@@ -1,7 +1,7 @@
 class SeekersController < ApplicationController
+
   def new
     @seeker=Seeker.new
-    @seeker.state = "academic"
   end
   
   def index
@@ -9,16 +9,17 @@ class SeekersController < ApplicationController
   end
  
   def create
-  
     @seeker = Seeker.new(seeker_params)
     if @seeker.save
-       @seeker.state = "academic" 
-      render "seekers/complete"
+        @seeker.fire_state_event(:addpersonal)
+        render "academics/new"
     end  
   end 
   
   private
+  
   def seeker_params
     params.require(:seeker).permit(:firstname, :lastname, :email, :contact, :gender,  :birth, :localaddress, :permanentaddress, :state )
   end
+  
 end

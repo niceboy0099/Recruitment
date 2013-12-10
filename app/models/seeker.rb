@@ -4,23 +4,24 @@ class Seeker < ActiveRecord::Base
     has_many :technicals, dependent: :destroy
     has_many :professionals, dependent: :destroy
     
-    state_machine :initial => :personal do
-         state :personal
+    state_machine :initial => :new do
+         state :new
          state :academic
          state :technical
          state :professional
          state :project
+         state :done
       
        
     event :addpersonal do
-        transition :personal => :academic
+        transition :new => :academic
     end
     
     event :addacademic do
         transition :academic => :technical
     end
     
-    event :addctechnical do
+    event :addtechnical do
         transition :technical => :professional
     end
     
@@ -29,9 +30,8 @@ class Seeker < ActiveRecord::Base
     end
     
     event :addproject do
-        transition :project => :professional, :professional => :technical, :technical => :academic,  :academic => :personal
+        transition :project => :done
     end 
     end
-    def addpersonal
-    end
+    
 end

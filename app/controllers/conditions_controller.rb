@@ -1,4 +1,5 @@
 class ConditionsController < ApplicationController
+
     def new
         @condition=Condition.new
     end
@@ -35,7 +36,9 @@ class ConditionsController < ApplicationController
     end
     
     private
-    def  condition_params
-    params.require(:condition).permit(:title, :description)
-  end
+    
+    def condition_params
+        params.require(:condition).permit(:title, :description)
+    end
+    
 end

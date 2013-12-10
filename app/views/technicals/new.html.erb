@@ -1,6 +1,6 @@
 <div class="heading">
 
-    <%= simple_form_for @technical do |f| %>
+   <%= simple_form_for ([@seeker, @seeker.technicals.build]) do |f|  %>
         
         <div>
             <%= f.label :programmingskill, "Pregramming Skills" %>

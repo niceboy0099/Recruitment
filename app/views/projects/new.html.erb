@@ -1,5 +1,5 @@
 <div class="heading">
-    <%= simple_form_for @project do |f| %>
+    <%= simple_form_for ([@seeker, @seeker.projects.build]) do |f| %>
     
         <div>
             <%= f.label :Title %>

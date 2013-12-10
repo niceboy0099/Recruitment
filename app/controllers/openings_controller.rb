@@ -8,12 +8,13 @@ class OpeningsController < ApplicationController
         @opening = Opening.all
     end
   
+  
     def create
         @opening = Opening.new(opening_params)
         if @opening.save
-          cond = params[:opening][:condition_ids]
-          cond.each do |cid|
-              @condition = @opening.opening_conditions.create!(:condition_id => cid) unless cid.blank?
+          conditions = params[:opening][:condition_ids]
+          conditions.each do |condition_id|
+              @condition = @opening.opening_conditions.create!(:condition_id => condition_id) unless condition_id.blank?
           end
         redirect_to @opening
         end
@@ -36,9 +37,9 @@ class OpeningsController < ApplicationController
         @opening = Opening.find(params[:id])
         @opening.opening_conditions.destroy_all
         if @opening.update(opening_params)
-            cond = params[:opening][:condition_ids]
-            cond.each do |cid|
-                @opening.opening_conditions.create!(:condition_id => cid) unless cid.blank?
+            conditions = params[:opening][:condition_ids]
+            conditions.each do |condition_id|
+                @opening.opening_conditions.create!(:condition_id => condition_id) unless condition_id.blank?
             end
         end 
         redirect_to @opening 
@@ -52,6 +53,7 @@ class OpeningsController < ApplicationController
     end
   
     private
+    
     def opening_params
         params.require(:opening).permit(:title, :jtype, :description)
     end

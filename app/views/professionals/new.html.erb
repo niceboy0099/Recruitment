@@ -1,5 +1,5 @@
 <div class ="heading">
-    <%= simple_form_for @professional do |f| %>
+    <%= simple_form_for ([@seeker, @seeker.professionals.build]) do |f| %>
     
     <div>
         <%= f.label :company_name, "Name of Company" %>
@@ -21,7 +21,9 @@
         <%= f.date_field :join_date %> TO
         <%= f.date_field :left_date %>
     </div>
-    
+    <div>
+       <%= f.submit "Next", :class=> 'btn btn-primary' %>
+    </div>
     <% end %>
     
 </div>    

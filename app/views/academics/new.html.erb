@@ -1,5 +1,5 @@
 <div class="heading">
-    <%= simple_form_for @academic do |f| %>
+    <%= simple_form_for([@seeker, @seeker.academics.build]) do |f|  %>
         <div>
             <%= f.label :Course %>
             <%= f.text_field :course %>
